@@ -13,7 +13,7 @@ jobs:
       - name: docker build nginx hello world
         run: docker build -t lama202/nginixtest:testtwo Docker/nodehello
 
-      - name login to docker
-        run:docker login -u lama202 -p dckr_pat_NJNSUY^B@MK BS^B
-      - run docker push lama202/nginixtest:testtwo:action-nginx
+      - name: login to docker
+        run: docker login -u lama202 -p dckr_pat_NJNSUY^B@MK BS^B
+      - run: docker push lama202/nginixtest:testtwo:action-nginx
     
