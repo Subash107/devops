@@ -1,0 +1,12 @@
+services:
+  nodehello:
+    image: nodehello:latest
+    build: ./Docker/nodehello
+    ports:
+     - 3005:3000
+
+  hellonginx:
+    image: nodehello:latest
+    build: ./Docker/configs
+    ports: 
+      - 3001:80
