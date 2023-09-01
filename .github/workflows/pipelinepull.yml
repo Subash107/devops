@@ -20,10 +20,10 @@ jobs:
     
   Deploy_staging:
       runs-on: [self-hosted, testrunner]
-      needs: staging build
+      needs: test
       steps:
-        - name :pull docker images
-        run: docker pull lama202/nginixtest:stagingnew
+        - name: pull docker images
+          run: docker pull lama202/nginixtest:stagingnew
 
         - name run staging image
         run: docker run -d - 3000:80 lama202/nginixtest:stagingnew
