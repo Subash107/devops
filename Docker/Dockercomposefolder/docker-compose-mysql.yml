@@ -1,0 +1,19 @@
+services:
+  database:
+   images: mysql:5.7
+   volumes:
+    - ../mysql:var/lib/mysql
+   env_file:
+     -  ../mysql_env_file
+   enviroment:
+     - TZ=Asia/kathmandu
+
+   phpmyadmin:
+    images: phpmyadmin:latest
+    ports:
+     - 80:80
+    enviroment:
+     - PMA_HHOST=database
+     - PMA_PORT="3306"
+     - PMA_USER=root
+     - PMA_PASSWORD=subasH
