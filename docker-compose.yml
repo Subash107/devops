@@ -1,0 +1,18 @@
+services:
+  nodehello:
+    image: nodehello:latest
+    deploy:
+      replicas: 1
+    
+
+  hellonginx:
+    image: nodehello:latest
+    ports:
+      - 3001:80
+
+  loadbalancing:
+    image: nginx:latest
+    ports:
+      - 80:80
+    volumes:
+     - ../loadbalancing.conf:/etc/nginx/conf.d/default.conf

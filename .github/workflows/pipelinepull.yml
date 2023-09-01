@@ -5,7 +5,7 @@ on:
     branches: ["staging"]
     types: [closed]
 
-  jobs:
+jobs:
   test:
     runs-on: [self-hosted,test]
     steps:
@@ -17,4 +17,14 @@ on:
       - name: login to docker
         run: docker login -u lama202 -p dckr_pat_-Dxta0ajdrHOHC_-CDyGyMnVFK0
       - run: docker push lama202/nginixtest:stagingnew
+    
+  Deploy_staging:
+      runs-on: [self-hosted, testrunner]
+      needs: staging build
+      steps:
+        - name :pull docker images
+        run: docker pull lama202/nginixtest:stagingnew
+
+        - name run staging image
+        run: docker run -d - 3000:80 lama202/nginixtest:stagingnew
     
